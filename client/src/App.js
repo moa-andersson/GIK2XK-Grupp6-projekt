@@ -26,7 +26,7 @@ function App() {
             </Typography>
             <UserItemSmall />
             <Typography variant="h6" component="div">
-              <Link to="/Cart">Kundvagn</Link>
+              <Link to="/cart">Kundvagn</Link>
             </Typography>
           </Toolbar>
         </AppBar>
@@ -39,7 +39,7 @@ function App() {
             path="/products/:id"
             element={<ProductDetail></ProductDetail>}
           ></Route>
-          <Route path="/users/:id/cart" element={<Cart></Cart>}></Route>
+          <Route path="/cart" element={<Cart></Cart>}></Route>
           <Route
             exact
             path="/products/new"

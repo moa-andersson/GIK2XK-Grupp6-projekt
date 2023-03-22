@@ -1,6 +1,7 @@
 import { Typography } from "@mui/material";
 
-function UserItemLarge({ user }) {
+function UserItemLarge() {
+  const user = 2;
   return (
     <>
       <Typography>

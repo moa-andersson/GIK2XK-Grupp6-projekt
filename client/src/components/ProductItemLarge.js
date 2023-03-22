@@ -45,15 +45,6 @@ function ProductItemLarge({ products }) {
         <Typography component="legend">Betyg</Typography>
         <Rating name="read-only" value={averageRating} readOnly />
         <Typography>leveransinfo</Typography>
-        <Link to={`/products/${products.id}/edit`}>
-          <Button variant="contained" color="primary">
-            Ändra
-          </Button>
-        </Link>
-
-        <Button variant="contained" color="primary">
-          Ta Bort
-        </Button>
         <Typography>Betygsätt produkten</Typography>
         <Rating name="no-value" value={null} />
       </Grid>
