@@ -1,0 +1,7 @@
+.Home {
+  padding-top: 23px;
+}
+.Home__grid-item {
+  border: 1px solid black;
+  padding: 10px;
+}
