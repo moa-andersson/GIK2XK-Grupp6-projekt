@@ -40,6 +40,10 @@ function App() {
             element={<ProductDetail></ProductDetail>}
           ></Route>
           <Route path="/cart" element={<Cart></Cart>}></Route>
+
+          {/* NY KOD - TESTER EN ROUTE TILL EN SPECIFIK USER CART */}
+          <Route path="user/:userId/cart" element={<Cart></Cart>}></Route>
+
           <Route
             exact
             path="/products/new"

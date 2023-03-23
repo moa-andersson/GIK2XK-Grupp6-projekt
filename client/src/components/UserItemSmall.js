@@ -15,9 +15,9 @@ function UserItemSmall() {
     smallUser = {
       firstName: "hittades inte",
       lastName: "hittades inte",
+      id: 0,
     };
   }
-
   return (
     <div>
       {smallUser.firstName} {smallUser.lastName}

@@ -29,6 +29,15 @@ async function getAll() {
   }
 }
 
+async function getById(id) {
+  try {
+    const user = await db.user.findOne({ where: { id } });
+    return createResponseSuccess(user);
+  } catch (error) {
+    return createResponseError(error.status, error.message);
+  }
+}
+
 async function create(user) {
   const invalidData = validate(user, constraints);
 
@@ -79,29 +88,58 @@ async function destroy(id) {
   }
 }
 
-async function getProductsFromCart(userId, cartId) {
-  if (!userId || !cartId) {
-    return createResponseError(
-      422,
-      "Användar-id kundvagns-id är obligatoriska"
-    ); //överflödig if?
+// async function getProductsFromCart(userId, cartId) {
+//   if (!userId || !cartId) {
+//     return createResponseError(
+//       422,
+//       "Användar-id kundvagns-id är obligatoriska"
+//     ); //överflödig if?
+//   }
+//   try {
+//     var allProductsInCart = [];
+//     const cart = await db.cart.findOne({ where: { id: cartId } });
+
+//     //kollar om kundkorgen tillhör användaren
+//     if (cart.userId == userId) {
+//       allProductsInCart = await db.cartRow.findAll({
+//         where: { cartId: cartId },
+//       });
+//     } else {
+//       return createResponseError(400, "Inte din kundkorg!");
+//     }
+//     return createResponseSuccess(allProductsInCart);
+//   } catch (error) {
+//     return createResponseError(error.status, error.message);
+//   }
+// }
+
+// NY KOD
+async function getProductsFromCart(userId) {
+  if (!userId) {
+    return createResponseError(422, "Användar-id är obligatoriskt");
   }
   try {
     var allProductsInCart = [];
-    const cart = await db.cart.findOne({ where: { id: cartId } });
+    //Hittar cart tillhörande user
+    const cart = await db.cart.findOne({ where: { userId: userId } });
 
-    //kollar om kundkorgen tillhör användaren
-    if (cart.userId == userId) {
-      allProductsInCart = await db.cartRow.findAll({
-        where: { cartId: cartId },
-      });
-    } else {
-      return createResponseError(400, "Inte din kundkorg!");
-    }
+    //hämtar alla cartrows tillhörande carten som hittades ovan
+    allProductsInCart = await db.cartRow.findAll({
+      where: { cartId: cart.id },
+    });
+
     return createResponseSuccess(allProductsInCart);
   } catch (error) {
     return createResponseError(error.status, error.message);
   }
 }
 
-module.exports = { getProductsFromCart, getAll, create, update, destroy };
+module.exports = {
+  getProductsFromCart,
+  getAll,
+  create,
+  update,
+  destroy,
+  getById,
+  getProductsFromCart,
+};
