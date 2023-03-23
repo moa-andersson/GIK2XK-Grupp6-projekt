@@ -2,6 +2,7 @@ import { Grid, Typography, Button, Rating, TextField } from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addRating, getOne, addToCart } from "../models/ProductModel";
+import "./ProductItemLarge.css";
 
 function ProductItemLarge({ products }) {
   console.log("produkt:", products);
@@ -65,7 +66,7 @@ function ProductItemLarge({ products }) {
       </Grid>
       <Grid item className="ProductItem__grid-item_price" xs={12} md={4}>
         <Typography>{products.title}</Typography>
-        <Typography>{products.price}</Typography>
+        <Typography>{products.price} kr</Typography>
         <form>
           <Button onClick={onAddToCart} variant="contained" color="primary">
             Lägg till i kundvagn

@@ -1,3 +1,13 @@
 .Product__item-small {
+  max-height: 150px;
   max-width: 150px;
+}
+
+.ProductItem:hover {
+  box-shadow: -19px 8px 59px -26px rgba(0, 0, 0, 0.31);
+  border-radius: 50%;
+}
+
+.ProductItem {
+  min-height: 150px;
 }

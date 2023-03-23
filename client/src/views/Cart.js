@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import CartList from "../components/CartList";
 import UserItemLarge from "../components/UserItemLarge";
 import { getAll } from "../models/CartModel";
+import PaidTwoToneIcon from "@mui/icons-material/PaidTwoTone";
 
 function Cart() {
   const paramId = useParams();
@@ -64,7 +65,11 @@ function Cart() {
         <UserItemLarge userId={userId} />
         <Typography>Totalsumma: {total}</Typography>
         <div>
-          <Button variant="contained" color="primary">
+          <Button
+            startIcon={<PaidTwoToneIcon />}
+            variant="contained"
+            color="primary"
+          >
             Betala
           </Button>
         </div>

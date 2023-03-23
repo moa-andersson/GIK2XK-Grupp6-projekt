@@ -2,6 +2,8 @@ import ProductItemSmall from "./ProductItemSmall";
 import { Button, Grid, Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getAll } from "../models/ProductModel";
+import "./CartList.css";
+import DeleteSweepTwoToneIcon from "@mui/icons-material/DeleteSweepTwoTone";
 
 function CartList({ cart, setAmount }) {
   // START NY KOD
@@ -56,7 +58,11 @@ function CartList({ cart, setAmount }) {
                   <Button>-</Button>
                   {cartItem.amount}
                   <Button>+</Button>
-                  <Button variant="contained" color="primary">
+                  <Button
+                    startIcon={<DeleteSweepTwoToneIcon />}
+                    variant="contained"
+                    color="primary"
+                  >
                     Ta bort
                   </Button>
                 </div>

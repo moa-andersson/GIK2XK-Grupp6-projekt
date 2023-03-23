@@ -16,10 +16,17 @@ function App() {
   return (
     <div className="App">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="fixed">
           <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-              <Link to="/"> Home{/* logga */}</Link>
+            <Typography variant="h6" component="div">
+              <Link to="/"> Alla Produkter {/* logga */}</Link>
+            </Typography>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ flexGrow: 1, marginLeft: "35vw" }}
+            >
+              <Link to="/"> Moa & Tom's Survivalkit{/* logga */}</Link>
             </Typography>
             <Typography variant="h6" component="div">
               <Link to="/products/new">Skapa produkt{/* logga */}</Link>
