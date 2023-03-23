@@ -43,7 +43,7 @@ Object.keys(db).forEach((modelName) => {
     db[modelName].associate(db);
   }
 });
-// Mikaela gjorde fel
+
 db.cart.belongsTo(db.user, {
   allowNull: false,
   onDelete: "CASCADE",
