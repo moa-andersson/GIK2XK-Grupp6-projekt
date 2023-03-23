@@ -24,9 +24,6 @@ function ProductDetail() {
           Ändra
         </Button>
       </Link>
-      <Button variant="contained" color="primary">
-        Ta Bort
-      </Button>
     </>
   );
 }

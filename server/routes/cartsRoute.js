@@ -1,6 +1,7 @@
 const router = require("express").Router();
 const db = require("../models");
 const validate = require("validate.js");
+const cartService = require("../services/cartService");
 
 const constraints = {};
 
@@ -30,13 +31,9 @@ router.put("/", (req, res) => {
 });
 
 router.delete("/", (req, res) => {
-  const email = req.body.email;
-  db.cart
-    .destroy({
-      where: { id: req.body.id },
-    })
-    .then(() => {
-      res.json(`Kundvagn togs bort`);
-    });
+  const id = req.body.id;
+  cartService.destroy(id).then((result) => {
+    res.status(result.status).json(result.data);
+  });
 });
 module.exports = router;

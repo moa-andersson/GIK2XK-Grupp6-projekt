@@ -1,7 +1,7 @@
 import { TextField, Button } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { create, getOne, update } from "../models/ProductModel";
+import { create, getOne, update, remove } from "../models/ProductModel";
 
 function ProductEdit() {
   const params = useParams();
@@ -37,7 +37,6 @@ function ProductEdit() {
 
   function onSave() {
     if (products.id === 0) {
-      //Fel: Uncaught in promise
       create(products).then(() => console.log("sparad"));
     } else {
       update(products).then(() => console.log("uppdaterad"));
@@ -45,7 +44,10 @@ function ProductEdit() {
     //lägg till funktion
   }
 
-  function onDelete() {}
+  function onDelete() {
+    //Fel: Uncaught in promise
+    remove(products.id).then(() => console.log("borttagen"));
+  }
 
   return (
     <form>
@@ -83,9 +85,11 @@ function ProductEdit() {
         variant="standard"
         fullWidth
       ></TextField>
+
       <Button variant="contained" color="primary">
         Tillbaka
       </Button>
+
       <Button onClick={onSave} variant="contained" color="primary">
         Spara
       </Button>

@@ -3,7 +3,7 @@ import { Button, Grid, Rating } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getAll } from "../models/ProductModel";
 
-function CartList({ cart }) {
+function CartList({ cart, setAmount }) {
   // START NY KOD
   const [products, setProducts] = useState([]);
 
@@ -33,6 +33,7 @@ function CartList({ cart }) {
     totalSum = totalSum + cartList[i].amount * cartList[i].price;
     console.log(totalSum);
   }
+  setAmount(totalSum);
 
   return (
     <ul>
@@ -62,14 +63,9 @@ function CartList({ cart }) {
               </Grid>
             </Grid>
           </li>
-        ))}{" "}
-      {totalSum}
+        ))}
     </ul>
   );
-}
-// NY KOD START
-function calculateSum() {
-  console.log("HEJ");
 }
 
 export default CartList;

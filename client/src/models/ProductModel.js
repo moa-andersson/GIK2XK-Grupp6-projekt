@@ -49,7 +49,35 @@ export async function create(product) {
 }
 
 export async function remove(id) {
-  const result = await api.post("/products/", { data: { id } });
+  const result = await api.delete("/products/", { data: { id } });
+  if (result.status === 200) {
+    return result.data;
+  } else {
+    console.log(result.status);
+    console.log(result.data);
+    return [];
+  }
+}
+
+export async function addRating(rating) {
+  const id = rating.productId;
+  const result = await api.post(`/products/${id}/addRating/`, rating);
+  if (result.status === 200) {
+    return result.data;
+  } else {
+    console.log(result.status);
+    console.log(result.data);
+    return [];
+  }
+}
+
+export async function addToCart(cartRow) {
+  const productId = cartRow.productId;
+  const userId = cartRow.userId;
+  const result = await api.post(
+    `/products/${productId}/user/${userId}/addToCart/`,
+    cartRow
+  );
   if (result.status === 200) {
     return result.data;
   } else {

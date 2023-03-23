@@ -11,7 +11,8 @@ function Cart() {
   console.log("USERID FRÅN PARAMS", paramId);
   //const userId = 1;
   const [cartItems, setCartItems] = useState([]);
-
+  const [total, setTotal] = useState(0);
+  console.log(total);
   useEffect(() => {
     getAll(userId).then((cartItems) => setCartItems(cartItems));
   }, []);
@@ -56,11 +57,12 @@ function Cart() {
       className="CartItem"
     >
       <Grid item xs={6} sm={6} md={6}>
-        <CartList cart={cartItems} />
+        <CartList setAmount={setTotal} cart={cartItems} />
       </Grid>
       <Grid item xs={6} sm={6} md={6}>
         <Typography>Kunduppgifter</Typography>
         <UserItemLarge userId={userId} />
+        <Typography>Totalsumma: {total}</Typography>
         <div>
           <Button variant="contained" color="primary">
             Betala

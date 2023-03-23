@@ -26,7 +26,7 @@ function App() {
             </Typography>
             <UserItemSmall />
             <Typography variant="h6" component="div">
-              <Link to="/cart">Kundvagn</Link>
+              <Link to="/user/2/cart">Kundvagn</Link>
             </Typography>
           </Toolbar>
         </AppBar>

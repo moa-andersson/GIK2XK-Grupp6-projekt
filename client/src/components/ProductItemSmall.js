@@ -15,7 +15,12 @@ function ProductItemSmall({ products }) {
         <img src={products.imgUrl} className="Product__item-small"></img>
         <Typography>{products.title}</Typography>
         <Typography>{products.price}</Typography>
-        <Rating name="read-only" value={averageRating} readOnly />
+        <Rating
+          precision={0.25}
+          name="read-only"
+          value={averageRating}
+          readOnly
+        />
       </Link>
     </div>
   );
