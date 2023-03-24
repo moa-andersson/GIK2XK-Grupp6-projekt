@@ -31,7 +31,7 @@ function Cart() {
           <Paper sx={{ padding: "2rem" }}>
             <Typography>Kunduppgifter</Typography>
             <UserItemLarge userId={userId} />
-            <Typography>Totalsumma: {total}</Typography>
+            <Typography>Totalsumma: {total} kr</Typography>
             <div>
               <Button
                 startIcon={<PaidTwoToneIcon />}

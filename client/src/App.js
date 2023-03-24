@@ -11,6 +11,7 @@ import ProductDetail from "./views/ProductDetail";
 import Cart from "./views/Cart";
 import Home from "./views/Home";
 import UserItemSmall from "./components/UserItemSmall";
+import ShoppingCartTwoToneIcon from "@mui/icons-material/ShoppingCartTwoTone";
 
 function App() {
   return (
@@ -33,9 +34,13 @@ function App() {
               <Link to="/products/new">Skapa produkt{/* logga */}</Link>
             </Typography>
             <UserItemSmall />
-            <Typography variant="h6" component="div">
-              <Link to="/user/2/cart">Kundvagn</Link>
-            </Typography>
+            <Link to="/user/2/cart">
+              <Button
+                startIcon={<ShoppingCartTwoToneIcon />}
+                variant="h6"
+                component="div"
+              ></Button>
+            </Link>
           </Toolbar>
         </AppBar>
       </Box>

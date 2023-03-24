@@ -1,8 +1,7 @@
-import { Grid, ListItem, Paper } from "@mui/material";
+import { Grid } from "@mui/material";
 import { getAll } from "../models/ProductModel";
 import { useEffect, useState } from "react";
 import ProductItemSmall from "./ProductItemSmall";
-import "./ProductList.css";
 
 function ProductList() {
   const [products, setProducts] = useState([]);
@@ -14,7 +13,7 @@ function ProductList() {
   return (
     <Grid
       container
-      spacing={{ xs: 20, md: 20 }}
+      spacing={{ xs: 20, md: 10 }}
       columns={{ xs: 4, sm: 8, md: 12 }}
       className="Home"
     >

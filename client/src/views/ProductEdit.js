@@ -1,4 +1,4 @@
-import { TextField, Button, Paper } from "@mui/material";
+import { TextField, Button, Paper, Stack } from "@mui/material";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { create, getOne, update, remove } from "../models/ProductModel";
@@ -55,91 +55,95 @@ function ProductEdit() {
   }
 
   return (
-    <Container
-      maxWidth="md"
-      sx={{ marginTop: "6rem", backgroundColor: "#f7ede2" }}
+    <Box
+      component={Stack}
+      direction="row"
+      justifyContent="center"
+      sx={{ backgroundColor: "#f7ede2", height: "100vh" }}
     >
-      <Paper elevation={6} sx={{ padding: "3rem" }}>
-        <form>
-          <TextField
-            value={products.title}
-            onChange={onChange}
-            name="title"
-            label="Titel"
-            variant="standard"
-            fullWidth
-          ></TextField>
-          <TextField
-            value={products.description}
-            onChange={onChange}
-            name="description"
-            label="Beskrivning"
-            variant="standard"
-            fullWidth
-            multiline
-            minRows={7}
-          ></TextField>
-          <TextField
-            value={products.price}
-            onChange={onChange}
-            name="price"
-            label="Pris"
-            variant="standard"
-            fullWidth
-          ></TextField>
-          <TextField
-            value={products.imgUrl}
-            onChange={onChange}
-            name="imgUrl"
-            label="URL till bild"
-            variant="standard"
-            fullWidth
-          ></TextField>
-          <Box
-            marginTop="20px"
-            display="flex"
-            justifyContent="center"
-            alignItems="center"
-            spacing={5}
-          >
-            <Button
-              sx={{ margin: "1rem" }}
-              startIcon={<ReplyTwoToneIcon />}
-              onClick={() => {
-                navigate(-1);
-              }}
-              variant="contained"
-              color="primary"
-            >
-              Tillbaka
-            </Button>
-
-            <Button
-              sx={{ margin: "1rem" }}
-              startIcon={<SaveIcon />}
-              onClick={onSave}
-              variant="contained"
-              color="primary"
+      <Container maxWidth="md" sx={{ marginTop: "6rem" }}>
+        <Paper elevation={9} sx={{ padding: "3rem" }}>
+          <form>
+            <TextField
+              value={products.title}
+              onChange={onChange}
+              name="title"
+              label="Titel"
+              variant="standard"
+              fullWidth
+            ></TextField>
+            <TextField
+              value={products.description}
+              onChange={onChange}
+              name="description"
+              label="Beskrivning"
+              variant="standard"
+              fullWidth
+              multiline
+              minRows={7}
+            ></TextField>
+            <TextField
+              value={products.price}
+              onChange={onChange}
+              name="price"
+              label="Pris"
+              variant="standard"
+              fullWidth
+            ></TextField>
+            <TextField
+              value={products.imgUrl}
+              onChange={onChange}
+              name="imgUrl"
+              label="URL till bild"
+              variant="standard"
+              fullWidth
+            ></TextField>
+            <Box
+              marginTop="20px"
+              display="flex"
+              justifyContent="center"
               alignItems="center"
-              justify="center"
+              spacing={5}
             >
-              Spara
-            </Button>
-            {products.id !== 0 && (
               <Button
                 sx={{ margin: "1rem" }}
-                startIcon={<DeleteSweepTwoToneIcon />}
-                onClick={onDelete}
+                startIcon={<ReplyTwoToneIcon />}
+                onClick={() => {
+                  navigate(-1);
+                }}
                 variant="contained"
-                color="warning"
+                color="primary"
               >
-                Ta bort
+                Tillbaka
               </Button>
-            )}
-          </Box>
-        </form>
-      </Paper>
-    </Container>
+
+              <Button
+                sx={{ margin: "1rem" }}
+                startIcon={<SaveIcon />}
+                onClick={onSave}
+                variant="contained"
+                color="primary"
+                alignItems="center"
+                justify="center"
+              >
+                Spara
+              </Button>
+              {products.id !== 0 && (
+                <Button
+                  sx={{ margin: "1rem" }}
+                  startIcon={<DeleteSweepTwoToneIcon />}
+                  onClick={onDelete}
+                  variant="contained"
+                  color="warning"
+                >
+                  Ta bort
+                </Button>
+              )}
+            </Box>
+          </form>
+        </Paper>
+      </Container>
+    </Box>
   );
 }
 

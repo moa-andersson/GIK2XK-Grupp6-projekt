@@ -88,31 +88,6 @@ async function destroy(id) {
   }
 }
 
-// async function getProductsFromCart(userId, cartId) {
-//   if (!userId || !cartId) {
-//     return createResponseError(
-//       422,
-//       "Användar-id kundvagns-id är obligatoriska"
-//     ); //överflödig if?
-//   }
-//   try {
-//     var allProductsInCart = [];
-//     const cart = await db.cart.findOne({ where: { id: cartId } });
-
-//     //kollar om kundkorgen tillhör användaren
-//     if (cart.userId == userId) {
-//       allProductsInCart = await db.cartRow.findAll({
-//         where: { cartId: cartId },
-//       });
-//     } else {
-//       return createResponseError(400, "Inte din kundkorg!");
-//     }
-//     return createResponseSuccess(allProductsInCart);
-//   } catch (error) {
-//     return createResponseError(error.status, error.message);
-//   }
-// }
-
 // NY KOD
 async function getProductsFromCart(userId) {
   if (!userId) {

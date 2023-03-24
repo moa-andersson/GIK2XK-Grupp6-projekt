@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addRating, getOne, addToCart } from "../models/ProductModel";
 import "./ProductItemLarge.css";
-
+import AddShoppingCartTwoToneIcon from "@mui/icons-material/AddShoppingCartTwoTone";
 function ProductItemLarge({ products }) {
   console.log("produkt:", products);
   const rating = products.ratings;
@@ -104,11 +104,20 @@ function ProductItemLarge({ products }) {
             {products.price} kr
           </Typography>
           <form>
-            <Button onClick={onAddToCart} variant="contained" color="primary">
-              Lägg till i kundvagn
+            <Button
+              onClick={onAddToCart}
+              startIcon={<AddShoppingCartTwoToneIcon />}
+              variant="contained"
+              color="primary"
+            >
+              Lägg till i kundvagnen
             </Button>
           </form>
-          <TextField onChange={onChange} name="productAmount">
+          <TextField
+            sx={{ marginTop: "1rem" }}
+            onChange={onChange}
+            name="productAmount"
+          >
             Antal
           </TextField>
           <Typography component="legend">Betyg</Typography>

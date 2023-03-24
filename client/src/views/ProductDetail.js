@@ -24,7 +24,7 @@ function ProductDetail() {
     >
       <ProductItemLarge className="ProductItemLarge" products={products} />
       <Link to={`/products/${productId}/edit`}>
-        <Button variant="contained" color="primary" sx={{ marginLeft: "5vw" }}>
+        <Button variant="contained" color="primary" sx={{ marginLeft: "15vw" }}>
           Ändra
         </Button>
       </Link>
