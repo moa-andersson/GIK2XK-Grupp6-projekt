@@ -3,7 +3,7 @@ import { Link, useParams } from "react-router-dom";
 import ProductItemLarge from "../components/ProductItemLarge";
 import { getOne } from "../models/ProductModel";
 import { useLocation } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import "./ProductDetail.css";
 
 function ProductDetail() {
@@ -18,14 +18,17 @@ function ProductDetail() {
 
   console.log("ID: ", productId);
   return (
-    <>
+    <Box
+      component="div"
+      sx={{ backgroundColor: "#f7ede2", paddingBottom: "10vw" }}
+    >
       <ProductItemLarge className="ProductItemLarge" products={products} />
       <Link to={`/products/${productId}/edit`}>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" sx={{ marginLeft: "5vw" }}>
           Ändra
         </Button>
       </Link>
-    </>
+    </Box>
   );
 }
 

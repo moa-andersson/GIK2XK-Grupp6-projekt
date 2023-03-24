@@ -1,3 +1,4 @@
+import { Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getAll } from "../models/UserModel";
 
@@ -19,9 +20,9 @@ function UserItemSmall() {
     };
   }
   return (
-    <div>
+    <Typography fontSize="1.4rem" color="secondary" variant="h2">
       {smallUser.firstName} {smallUser.lastName}
-    </div>
+    </Typography>
   );
 }
 

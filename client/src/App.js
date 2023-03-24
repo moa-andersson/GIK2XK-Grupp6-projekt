@@ -22,9 +22,10 @@ function App() {
               <Link to="/"> Alla Produkter {/* logga */}</Link>
             </Typography>
             <Typography
-              variant="h6"
+              variant="h1"
               component="div"
-              sx={{ flexGrow: 1, marginLeft: "35vw" }}
+              sx={{ flexGrow: 1 }}
+              color="secondary"
             >
               <Link to="/"> Moa & Tom's Survivalkit{/* logga */}</Link>
             </Typography>

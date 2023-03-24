@@ -1,6 +1,7 @@
-.ProductItem {
+.ProductItemLarge {
   padding-top: 80px;
 }
 
-.ProductItem__grid-item {
+.ProductItem__grid-item_price {
+  padding-right: 10vw;
 }

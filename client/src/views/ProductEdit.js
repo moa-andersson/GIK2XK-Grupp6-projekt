@@ -1,6 +1,6 @@
 import { TextField, Button, Paper } from "@mui/material";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { create, getOne, update, remove } from "../models/ProductModel";
 import SaveIcon from "@mui/icons-material/Save";
 import DeleteSweepTwoToneIcon from "@mui/icons-material/DeleteSweepTwoTone";
@@ -55,7 +55,10 @@ function ProductEdit() {
   }
 
   return (
-    <Container maxWidth="md" sx={{ marginTop: "6rem" }}>
+    <Container
+      maxWidth="md"
+      sx={{ marginTop: "6rem", backgroundColor: "#f7ede2" }}
+    >
       <Paper elevation={6} sx={{ padding: "3rem" }}>
         <form>
           <TextField

@@ -1,4 +1,13 @@
-import { Grid, Typography, Button, Rating, TextField } from "@mui/material";
+import {
+  Grid,
+  Typography,
+  Button,
+  Rating,
+  TextField,
+  Paper,
+  Box,
+  Stack,
+} from "@mui/material";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { addRating, getOne, addToCart } from "../models/ProductModel";
@@ -45,46 +54,76 @@ function ProductItemLarge({ products }) {
   }
 
   return (
-    <Grid container columnSpacing={2} className="ProductItem">
+    <Grid
+      container
+      columnSpacing={2}
+      className="ProductItemLarge"
+      sx={{ backgroundColor: "#f7ede2" }}
+    >
       <Grid item className="ProductItem__grid-item" xs={12} md={8}>
-        <div>
-          <img src={products.imgUrl}></img>
-        </div>
-        <Typography>{products.description}</Typography>
-        <div>
-          {products.ratings &&
-            products.ratings.map((rating) => (
-              <div>
-                <Rating
-                  key={`ratingId_${rating.id}`}
-                  value={rating.rating}
-                  readOnly
-                />
-              </div>
-            ))}
-        </div>
+        <Box variant="div" sx={{ padding: "1vw 15vw" }}>
+          <Box
+            component={Stack}
+            direction="row"
+            justifyContent="center"
+            sx={{ marginBottom: "3rem" }}
+          >
+            <Box
+              component="img"
+              src={products.imgUrl}
+              sx={{ maxHeight: "30vw" }}
+            ></Box>
+          </Box>
+          <Paper sx={{ padding: "2vw" }}>
+            <Typography fontSize="1.6rem" variant="productTitle">
+              {products.title}
+            </Typography>
+
+            <Typography sx={{ marginTop: "1rem" }}>
+              {products.description}
+            </Typography>
+          </Paper>
+          <div>
+            {products.ratings &&
+              products.ratings.map((rating) => (
+                <div>
+                  <Rating
+                    key={`ratingId_${rating.id}`}
+                    value={rating.rating}
+                    readOnly
+                  />
+                </div>
+              ))}
+          </div>
+        </Box>
       </Grid>
       <Grid item className="ProductItem__grid-item_price" xs={12} md={4}>
-        <Typography>{products.title}</Typography>
-        <Typography>{products.price} kr</Typography>
-        <form>
-          <Button onClick={onAddToCart} variant="contained" color="primary">
-            Lägg till i kundvagn
-          </Button>
-        </form>
-        <TextField onChange={onChange} name="productAmount">
-          Antal
-        </TextField>
-        <Typography component="legend">Betyg</Typography>
-        <Rating
-          precision={0.25}
-          name="read-only"
-          value={averageRating}
-          readOnly
-        />
-        <Typography>leveransinfo</Typography>
-        <Typography>Betygsätt produkten</Typography>
-        <Rating onClick={onSave} name="no-value" />
+        <Paper sx={{ padding: "2rem" }}>
+          <Typography variant="productTitle">{products.title}</Typography>
+          <Typography fontSize="1.8rem" color="secondary">
+            {products.price} kr
+          </Typography>
+          <form>
+            <Button onClick={onAddToCart} variant="contained" color="primary">
+              Lägg till i kundvagn
+            </Button>
+          </form>
+          <TextField onChange={onChange} name="productAmount">
+            Antal
+          </TextField>
+          <Typography component="legend">Betyg</Typography>
+          <Rating
+            precision={0.25}
+            name="read-only"
+            value={averageRating}
+            readOnly
+          />
+          <Typography>
+            leveransinfo: kommer att levereras inom 5 arbetsdagar med snailmail!{" "}
+          </Typography>
+          <Typography>Betygsätt produkten</Typography>
+          <Rating onClick={onSave} name="no-value" />
+        </Paper>
       </Grid>
     </Grid>
   );
