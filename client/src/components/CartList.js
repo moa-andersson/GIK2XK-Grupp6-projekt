@@ -1,5 +1,5 @@
 import ProductItemSmall from "./ProductItemSmall";
-import { Button, Grid, Rating } from "@mui/material";
+import { Button, Grid, Rating, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getAll } from "../models/ProductModel";
 import "./CartList.css";
@@ -52,11 +52,11 @@ function CartList({ cart, setAmount }) {
                 <img src={cartItem.imgUrl} width={100} height={100}></img>
               </Grid>
               <Grid item xs={6} sm={6} md={6}>
-                <div>{cartItem.title}</div>
-                <div>{cartItem.price}</div>
+                <Typography>{cartItem.title}</Typography>
+                <Typography>{cartItem.price} kr</Typography>
                 <div>
                   <Button>-</Button>
-                  {cartItem.amount}
+                  <Typography>{cartItem.amount}</Typography>
                   <Button>+</Button>
                   <Button
                     startIcon={<DeleteSweepTwoToneIcon />}
