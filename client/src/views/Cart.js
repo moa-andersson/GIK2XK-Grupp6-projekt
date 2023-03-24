@@ -11,7 +11,7 @@ function Cart() {
   const paramId = useParams();
   const userId = Number(paramId.userId);
   console.log("USERID FRÅN PARAMS", paramId);
-  //const userId = 1;
+
   const [cartItems, setCartItems] = useState([]);
   const [total, setTotal] = useState(0);
   console.log(total);

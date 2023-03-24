@@ -88,7 +88,6 @@ async function destroy(id) {
   }
 }
 
-// NY KOD
 async function getProductsFromCart(userId) {
   if (!userId) {
     return createResponseError(422, "Användar-id är obligatoriskt");

@@ -12,7 +12,7 @@ export async function getAll() {
     return [];
   }
 }
-// NY KOD
+
 export async function getOne(userId) {
   const result = await api.get(`/users/${userId}`);
 

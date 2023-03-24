@@ -8,8 +8,6 @@ import {
   Box,
   Stack,
 } from "@mui/material";
-import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { addRating, getOne, addToCart } from "../models/ProductModel";
 import "./ProductItemLarge.css";
 import AddShoppingCartTwoToneIcon from "@mui/icons-material/AddShoppingCartTwoTone";

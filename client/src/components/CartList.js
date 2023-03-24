@@ -1,4 +1,3 @@
-import ProductItemSmall from "./ProductItemSmall";
 import { Button, Grid, Rating, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import { getAll } from "../models/ProductModel";
@@ -42,12 +41,7 @@ function CartList({ cart, setAmount }) {
       {cartList &&
         cartList.map((cartItem) => (
           <li key={`cartRowId_${cartItem.id}`}>
-            <Grid
-              container
-              columnSpacing={2}
-              //columns={{ xs: 6, sm: 4, md: 4 }}
-              className="CartItem"
-            >
+            <Grid container columnSpacing={2} className="CartItem">
               <Grid item xs={6} sm={6} md={6}>
                 <img src={cartItem.imgUrl} width={100} height={100}></img>
               </Grid>

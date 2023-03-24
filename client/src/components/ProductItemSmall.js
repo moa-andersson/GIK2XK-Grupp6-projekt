@@ -1,13 +1,4 @@
-import {
-  Box,
-  Card,
-  Grid,
-  ListItem,
-  Paper,
-  Rating,
-  Stack,
-  Typography,
-} from "@mui/material";
+import { Box, Paper, Rating, Stack, Typography } from "@mui/material";
 import { Link } from "react-router-dom";
 import "./ProductItemSmall.css";
 function ProductItemSmall({ products }) {

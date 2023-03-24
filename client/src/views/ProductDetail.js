@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import ProductItemLarge from "../components/ProductItemLarge";
 import { getOne } from "../models/ProductModel";
-import { useLocation } from "react-router-dom";
 import { Box, Button } from "@mui/material";
 import "./ProductDetail.css";
 

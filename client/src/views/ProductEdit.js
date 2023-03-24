@@ -46,11 +46,9 @@ function ProductEdit() {
     } else {
       update(products).then(() => console.log("uppdaterad"));
     }
-    //lägg till funktion
   }
 
   function onDelete() {
-    //Fel: Uncaught in promise
     remove(products.id).then(() => console.log("borttagen"));
   }
 
